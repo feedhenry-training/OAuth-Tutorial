@@ -86,7 +86,7 @@ FHOAuth2User.prototype.buildUrl = function(path_name, params) {
  * Opens browser and redirects user to the login page where user is asked to
  * authenticate herself/himself with the provider (log in) and authorize the
  * application to allow acting on her/his behalf.
- * 
+ *
  * @param callback
  *          Function to be executed after browser opens. NOTE: there is no way
  *          to know if the url is correct at this point.
@@ -100,6 +100,9 @@ FHOAuth2User.prototype.browserLogin = function(callback, errback) {
 
   var loginUrl = this.buildUrl('login');
 
+  //Please refer to this post why we cant use ?param1=value1&param2=value2
+  //when using Facebook OAuth 2.0
+  // http://stackoverflow.com/questions/4386691/facebook-error-error-validating-verification-code
   var urlQuery = '/{device_id}/{user_name}';
   urlQuery = urlQuery
       .replace('{user_name}', encodeURIComponent(this.user_name));
@@ -180,8 +183,7 @@ FHOAuth2User.prototype.requestAuthDetails = function(callback) {
   var _this = this;
 
   // call server to get auth status
-  $fh
-      .act( {
+  $fh.act( {
       act : 'oauth_status',
       req : {
         user : _this

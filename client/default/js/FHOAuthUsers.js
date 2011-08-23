@@ -122,10 +122,10 @@ var userManager = (function() {
    * Adds new user object to the array of users. This function takes only one
    * parameter, which is the FHOAuthxUser object. User must be associated with
    * the provider or will be rejected.
-   * 
+   *
    * @param user
    *          The implementation of FHOAuthxUser
-   * 
+   *
    */
   addUser : function(user) {
 
@@ -146,8 +146,8 @@ var userManager = (function() {
   /**
    * Is being executed when the user authorizes the app. Sets the current user.
    * And executes successful callback.
-   * 
-   * 
+   *
+   *
    * @param user
    *          The implementation of FHOAuth2User
    * @param callback
@@ -183,7 +183,7 @@ var userManager = (function() {
   /**
    * Changes current user per specified provider. This may occur when you want
    * to add a new user or switch between users.
-   * 
+   *
    * @param provider_name
    *          The name of the provider.
    * @param user_name

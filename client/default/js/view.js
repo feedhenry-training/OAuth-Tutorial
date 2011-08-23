@@ -76,6 +76,10 @@ var viewController = (function() {
     // we are hardcoding FEEDHENRY user_id photos here
     var params = [ [ 'user_id', '63862562@N03' ] ];
 
+    //please refer to Flickr documentation to find out more on the request and respone
+    //http://www.flickr.com/services/api/flickr.people.getPhotos.html
+    //also you can find here detailed info how to build image url:
+    //http://www.flickr.com/services/api/misc.urls.html
     userManager
         .callOAuth1(currentUser, params, 'photos', function(res) {
           if (res.photos) {
